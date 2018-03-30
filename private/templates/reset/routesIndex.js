@@ -1,3 +1,2 @@
-
 // { "path" : "imports/ui/routes/index.js" }
-import './mainRoutes'
+import './mainRoutes';

@@ -1,11 +1,17 @@
-import { FlowRouter } from 'meteor/ostrio:flow-router-extra'
+import { Router } from 'meteor/iron:router';
+import '../components/layout/main.html';
+import '../components/Home/HomeComponent';
 
-FlowRouter.route('/', {
-  title: 'Boilerplate Home',
-  action() {
-    this.render('mainLayout', 'Home')
-  },
-  waitOn() {
-    return import('../components/Home/HomeComponent.js')
-  },
-})
+Router.route('/', {
+	name: 'Home',
+	layoutTemplate: 'mainLayout',
+	template: 'Home',
+	action: function() {
+		this.render();
+	},
+	onAfterAction() {
+		SEO.set({
+			title: 'Home'
+		});
+	}
+});
